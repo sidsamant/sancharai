@@ -1,6 +1,6 @@
 import { LlmAgent, MCPToolset, MCPSessionManager } from "@google/adk";
 import type { StdioConnectionParams } from "@google/adk";
-import type { SourceConfig } from "./config";
+import type { SourceConfig } from "../../config.ts";
 
 type SourceAgentOptions = {
     name: string;
@@ -37,7 +37,7 @@ function ensureSourceRuntime(source: SourceConfig): { toolset: MCPToolset; manag
     return { toolset, manager };
 }
 
-export function createSourceHoarderAgent(options: SourceAgentOptions): LlmAgent {
+export function createFileSystemHoarderAgent(options: SourceAgentOptions): LlmAgent {
     const { toolset } = ensureSourceRuntime(options.source);
 
     return new LlmAgent({
@@ -73,4 +73,5 @@ export async function readFileListFromSource(sourceId: string, directoryPath: st
         arguments: { path: directoryPath },
     });
 }
+
 

@@ -1,23 +1,22 @@
 import "dotenv/config";
 import { LlmAgent } from "@google/adk";
-import { loadHoarderConfig } from "./config";
-import { createConfluenceHoarderAgent } from "./sources/confluence/agent";
-import { createFilesourceHoarderAgent } from "./sources/filesource/agent";
-import { createGdocsHoarderAgent } from "./sources/gdocs/agent";
-import { createSharepointHoarderAgent } from "./sources/sharepoint/agent";
-import { createSlackHoarderAgent } from "./sources/slack/agent";
-import { createWhatsappHoarderAgent } from "./sources/whatsapp/agent";
-import type { SourceConfig } from "./config";
-import { getToolsForSource, readFileListFromSource } from "./source-agent";
+import { loadHoarderConfig } from "./config.js";
+import { createConfluenceHoarderAgent } from "./sources/confluence/agent.js";
+import { createFilesourceHoarderAgent } from "./sources/filesource/agent.js";
+import { createGdocsHoarderAgent } from "./sources/gdocs/agent.js";
+import { createSharepointHoarderAgent } from "./sources/sharepoint/agent.js";
+import { createSlackHoarderAgent } from "./sources/slack/agent.js";
+import { createWhatsappHoarderAgent } from "./sources/whatsapp/agent.js";
+import type { SourceConfig } from "./config.js";
+import { getToolsForSource, readFileListFromSource } from "./sources/filesource/source-agent.ts";
 
-export { createMetadata, evaluateDocumentForIngestion } from "./policy";
-export type { HoarderAuditRecord, HoarderDecision, HoarderMetadata } from "./policy";
+export { createMetadata, evaluateDocumentForIngestion } from "./policy.js";
+export type { HoarderAuditRecord, HoarderDecision, HoarderMetadata } from "./policy.js";
 export { getToolsForSource, readFileListFromSource };
 
 type SourceAgentFactory = (source: SourceConfig) => LlmAgent;
 
 const FACTORIES: Record<string, SourceAgentFactory> = {
-    filesource: createFilesourceHoarderAgent,
     filesystem: createFilesourceHoarderAgent,
     confluence: createConfluenceHoarderAgent,
     gdocs: createGdocsHoarderAgent,
@@ -47,4 +46,5 @@ Aggregate auditable outcomes and keep ingestion incremental based on user-provid
 Ensure screening policy is enforced: no drafts, only final/released signals, and explicit rejection reasons.`,
     subAgents: sourceAgents,
 });
+
 
