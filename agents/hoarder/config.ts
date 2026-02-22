@@ -84,9 +84,9 @@ function parseHoarderYaml(yamlText: string): HoarderConfig {
 }
 
 export function loadHoarderConfig(): HoarderConfig {
-    const thisDir = dirname(fileURLToPath(import.meta.url));
-    const filePath = resolve(thisDir, "config.yaml");
-    const fileContent = readFileSync(filePath, "utf8");
+    // const thisDir = dirname(fileURLToPath(import.meta.url));
+    // const filePath = resolve(thisDir, "config.yaml");
+    const fileContent = readFileSync("config.yaml", "utf8");
     const parsed = parseHoarderYaml(fileContent);
 
     if (!parsed.sources.length) {

@@ -10,8 +10,8 @@ import { createWhatsappHoarderAgent } from "./sources/whatsapp/agent.js";
 import type { SourceConfig } from "./config.js";
 import { getToolsForSource, readFileListFromSource } from "./sources/filesource/source-agent.ts";
 
-export { createMetadata, evaluateDocumentForIngestion } from "./policy.js";
-export type { HoarderAuditRecord, HoarderDecision, HoarderMetadata } from "./policy.js";
+// export { createMetadata, evaluateDocumentForIngestion } from "./policy.js";
+// export type { HoarderAuditRecord, HoarderDecision, HoarderMetadata } from "./policy.js";
 export { getToolsForSource, readFileListFromSource };
 
 type SourceAgentFactory = (source: SourceConfig) => LlmAgent;

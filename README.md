@@ -17,6 +17,8 @@ SancharAI is a communication and collaboration platform powered by artificial in
 ## Documentation
 For detailed documentation, see the [docs](./docs) folder.
 
+##
+
 ## Contributing
 Contributions are welcome. Please review our contributing guidelines.
 
