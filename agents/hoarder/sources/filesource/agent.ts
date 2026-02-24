@@ -4,7 +4,7 @@ import type { StdioConnectionParams } from "@google/adk";
 
 class FilesourceRuntime {
     private static readonly sourceId = "filesystem";
-    private static readonly sourcePath = resolve(process.env.HOARDER_FILESOURCE_PATH ?? "./docs");
+    private static readonly sourcePath = "D:/ai/adk/demofiles";
 
     private static readonly connectionParams: StdioConnectionParams = {
         type: "StdioConnectionParams",
@@ -52,13 +52,15 @@ class FilesourceRuntime {
 
 export const filesourceAgent = new LlmAgent({
     name: "filesource_hoarder",
-    model: "gemini-2.5-flash",
+    // model: "gemini-2.5-flash",
+    
+    model: "gemini-2.5-flash-lite",
     description: "Hoarder sub-agent for filesystem-backed document sources.",
     tools: [FilesourceRuntime.getToolset()],
     instruction: `You are a Data Classifier.
-Scan and ingest only from ${FilesourceRuntime.getSourcePath()}.
+Scan and ingest only from ${FilesourceRuntime.getSourcePath()}. Do not request user for path.
 Never include drafts.
-Inspect directory metadata first. DO notretrieve file content.
+Inspect directory metadata first. DO not retrieve file content.
 Use directory structure and file metadata to determine final/released signals for each document.
 If a document is not final/released, reject it with an explicit reason.
 For each candidate document, produce metadata and an auditable decision for ingestion.
