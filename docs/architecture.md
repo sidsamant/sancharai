@@ -59,8 +59,8 @@ Subcomponents
 
  UI to provuide sections for newsletter or AI can auto suggest based on target audience, business
  UI to have companyu profile with products.
-UI to provide hireachy of roles for letters.,
-UI to provide special note from writer
+    UI to provide hireachy of roles for letters.,
+    UI to provide special note from writer
 
 
 
