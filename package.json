@@ -4,6 +4,10 @@
   "description": "",
   "main": "agent.ts",
   "scripts": {
+    "run": "adk run agent.ts",
+    "web": "adk web",
+    "debug:run": "node --inspect-brk ./node_modules/@google/adk-devtools/dist/cli/cli.cjs run agent.ts",
+    "debug:web": "node --inspect-brk ./node_modules/@google/adk-devtools/dist/cli/cli.cjs web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +16,9 @@
   "type": "module",
   "dependencies": {
     "@google/adk": "^0.3.0",
-    "ollama": "^0.6.3"
+    "node-fetch": "^3.3.0",
+    "ollama": "^0.6.3",
+    "pino": "^10.3.1"
   },
   "devDependencies": {
     "@google/adk-devtools": "^0.3.0"
