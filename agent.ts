@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { SequentialAgent, type Event, type InvocationContext } from "@google/adk";
 import { rootAgent as hoarderAgent } from "./agents/hoarder/agent.ts";
 // import { fileMetadataScreeningAgent } from "./agents/screener/agent.ts";
-import { fileMetadataScreeningAgent } from "./agents/screener/agentHosted.ts";
+import { fileMetadataScreeningAgent } from "./agents/screener/agent.ts";
 
 // const OUTPUT_FILE_PATH = join(dirname(fileURLToPath("./agent_out.log")), "agent_output.txt");
 
